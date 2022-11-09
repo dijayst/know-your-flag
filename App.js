@@ -4,42 +4,83 @@ import { Alert, Button, FlatList, Image, ScrollView, StyleSheet, Text, TextInput
 export default function App() {
 const total=3;
 const [score, setscore] = useState(0);
-const image=[{id:1,image:require("./imagee/nig.png")},
-                                    {id:2,image:require("./imagee/uk.png")},
-                                    {id:3,image:require("./imagee/uk.png")},
-                                    {id:4,image:require("./imagee/uk.png")}];
-                                    const [handl, sethandl] = useState("")
-             const handlequest=(e)=>{
-               sethandl(event.target.value)
-               console.log(handl)
-  //Alert(image[3]);
-  console.log("helob")
+const [handle,sethandle]=useState(false);
+const image={image1:require("./imagee/nig.png"),
+             image2:require("./imagee/uk.png"),
+             image3:require("./imagee/gh.png")};
+const image1={image1:require("./imagee/nig.png"),
+             image2:require("./imagee/uk.png"),
+             image3:require("./imagee/uk.png"),
+             image:require("./imagee/uk.png")};
+const image2={image1:require("./imagee/nig.png"),
+             image2:require("./imagee/uk.png"),
+             image3:require("./imagee/uk.png"),
+             image:require("./imagee/uk.png")};
 
-             }                  
+    const handlequest=()=>{
+      for(i=1;i<total;i++){
+        /*  if(image.image1===null||image.image1===""){
+            alert("yeah")
+          return(handle)
+          }*/
+          if(eval(image.image+i)===null||eval(image.image+i==="")){
+            alert("you missed")
+            console.log(i)
+          return(handle)
+          }else{
+            console.log(i)
+          alert("clicked")
+          return(handle)
+       
+          }
+          iimage++
+        }
+        console.log(image++)
+      //  console.log(iscore++)
+        //console.log(score)
+        /*
+     
+
+      sethandle(!handle)      
+      if(image===null || image===""){
+        alert("yeah")
+        return(handle)
+      }else{
+        alert("clicked")
+        return(handle)
+      }*/
+         
+  
+    }
              useEffect(() => {
-               console.log(image[2])
+               console.log(image)
              })     
   return (
    <View>
+     <ScrollView>
      <View>
        <Text>Guess the country</Text>
-       <Button title='click me' onPress={()=>{alert("welcome")}} />
+       <Button title='click me' onPress={()=>{alert("welcome")}}  />
 
-       <TextInput placeholder="hehf" value={handl} onChangeText={(val)=>sethandl(val)}/>
+       <Button title='click me' onPress={()=>{console.log("welcome")}} />
+       <TextInput placeholder="hehf"/>
      </View>
      <View>
+       
        <Text>
          Nigeria
        </Text>
-       <FlatList
-       data={image}
-       keyExtractor={(item)=>item.id}
-       renderItem={({item})=>(<TouchableOpacity onPressIn={()=>(handlequest)}>
-        <Image source={item.image} 
-       style={styles.imagearray}/>
-        </TouchableOpacity>)}
-       />
-       <Button onPressIn={()=>console.log("ty")} title="submit"/>
+       <TextInput source={image.image1} style={styles.imagearray} />
+       <TouchableOpacity onPress={()=>{handlequest()}} style={handle?styles.typog:styles.typo}>
+       <Image source={image.image1}  style={styles.imagearray}/>
+       </TouchableOpacity>
+       <TouchableOpacity onPress={()=>{handlequest()}} style={handle?styles.typog:styles.typo}>
+       <Image source={image.image2}  style={styles.imagearray}/>
+       </TouchableOpacity>
+       <TouchableOpacity onPress={()=>{handlequest()}} style={handle?styles.typog:styles.typo}>
+       <Image source={image.image3}  style={styles.imagearray}/>
+       </TouchableOpacity>
+       <Button onPress={()=>{console.log("ty")}} title="submit"/>
        <Text>
          Tap the flag of Nigeria
        </Text>
@@ -59,6 +100,7 @@ const image=[{id:1,image:require("./imagee/nig.png")},
        <Image source={require("./imagee/nig.png")}/>
        <Image source={require("./imagee/uk.png")}/>
      </View>
+     </ScrollView>
    </View>
   )
 }
@@ -70,6 +112,7 @@ const styles=StyleSheet.create({
     flex:1,
   paddingHorizontal:20
   },
+
   body:{
     backgroundColor:'pink',
     padding:40,
@@ -92,6 +135,25 @@ padding:30,
     width:150,
     height:30
 
+  },
+  typog:{
+    backgroundColor:"red",
+    width:45,
+    height:45,
+borderRadius:5,
+marginTop:24,
+padding:30,
+  },
+  typo:{
+    backgroundColor:"green",
+    width:45,
+    height:45,
+    
+borderRadius:5,
+marginTop:24,
+padding:30,
   }
 
 })
+
+// sethandle(!handle)      
