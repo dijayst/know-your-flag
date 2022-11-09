@@ -1,13 +1,16 @@
 import React, { useState,useEffect } from 'react'
-import { Alert, Button, FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import {  Button, FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import Hy from './gamescomponent/Hy';
 
 export default function App() {
 const total=3;
+const[picked,setpicked]=useState([])
 const [score, setscore] = useState(0);
 const [handle,sethandle]=useState(false);
-const image={image1:require("./imagee/nig.png"),
-             image2:require("./imagee/uk.png"),
-             image3:require("./imagee/gh.png")};
+
+const imagee=[{id:"1",image:require("./imagee/nig.png")},
+              {id:"2",image:require("./imagee/uk.png")},
+              {id:"3",image:require("./imagee/gh.png")}];
 const image1={image1:require("./imagee/nig.png"),
              image2:require("./imagee/uk.png"),
              image3:require("./imagee/uk.png"),
@@ -17,13 +20,18 @@ const image2={image1:require("./imagee/nig.png"),
              image3:require("./imagee/uk.png"),
              image:require("./imagee/uk.png")};
 
+              
     const handlequest=()=>{
+      
+  //    let eachfoor=Object.keys(image).forEach((key)=>{return(
+//console.log(image[key])
+    //  )})
       for(i=1;i<total;i++){
-        /*  if(image.image1===null||image.image1===""){
+          if(imagee[i].image===null||imagee[i].image===""){
             alert("yeah")
           return(handle)
-          }*/
-          if(eval(image.image+i)===null||eval(image.image+i==="")){
+          }
+          if(eval(imagee.image+i)===null||eval(imagee.image+i==="")){
             alert("you missed")
             console.log(i)
           return(handle)
@@ -33,16 +41,16 @@ const image2={image1:require("./imagee/nig.png"),
           return(handle)
        
           }
-          iimage++
+          imagee++
         }
+         sethandle(!handle)
         console.log(image++)
       //  console.log(iscore++)
         //console.log(score)
-        /*
+        
      
-
-      sethandle(!handle)      
-      if(image===null || image===""){
+    
+    /*  if(image===null || image===""){
         alert("yeah")
         return(handle)
       }else{
@@ -53,11 +61,14 @@ const image2={image1:require("./imagee/nig.png"),
   
     }
              useEffect(() => {
-               console.log(image)
+               console.log(imagee)
              })     
   return (
    <View>
      <ScrollView>
+       <Hy handle={handle} handl={()=>{handlequest()}} ques={imagee}/>
+       
+
      <View>
        <Text>Guess the country</Text>
        <Button title='click me' onPress={()=>{alert("welcome")}}  />
@@ -70,38 +81,12 @@ const image2={image1:require("./imagee/nig.png"),
        <Text>
          Nigeria
        </Text>
-       <TextInput source={image.image1} style={styles.imagearray} />
-       <TouchableOpacity onPress={()=>{handlequest()}} style={handle?styles.typog:styles.typo}>
-       <Image source={image.image1}  style={styles.imagearray}/>
-       </TouchableOpacity>
-       <TouchableOpacity onPress={()=>{handlequest()}} style={handle?styles.typog:styles.typo}>
-       <Image source={image.image2}  style={styles.imagearray}/>
-       </TouchableOpacity>
-       <TouchableOpacity onPress={()=>{handlequest()}} style={handle?styles.typog:styles.typo}>
-       <Image source={image.image3}  style={styles.imagearray}/>
-       </TouchableOpacity>
-       <Button onPress={()=>{console.log("ty")}} title="submit"/>
-       <Text>
-         Tap the flag of Nigeria
-       </Text>
-       <Image source={require("./imagee/uk.png")}/>
-       <Image source={require("./imagee/nig.png")}/>
-       <Image source={require("./imagee/russia.jpg")}/>
-       <Text>
-       Tap the flag of morroco
-       </Text>
-       <Image source={require("./imagee/gh.png")}/>
-       <Image source={require("./imagee/morro.jpg")}/>
-       <Image source={require("./imagee/us.webp")}/>
-       <Text>
-       Tap the flag of Russia
-       </Text>
-       <Image source={require("./imagee/russia.jpg")}/>
-       <Image source={require("./imagee/nig.png")}/>
-       <Image source={require("./imagee/uk.png")}/>
-     </View>
-     </ScrollView>
-   </View>
+              <Button onPress={()=>{console.log("ty")}} title="submit"/>
+     
+      </View>
+      </ScrollView>
+      </View>
+      
   )
 }
 
@@ -155,5 +140,3 @@ padding:30,
   }
 
 })
-
-// sethandle(!handle)      
