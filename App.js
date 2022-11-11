@@ -4,17 +4,33 @@ import Hy from './gamescomponent/Hy';
 
 export default function App() {
 const total=3;
-const[picked,setpicked]=useState([])
+pick=""
 const [score, setscore] = useState(0);
 const [handle,sethandle]=useState(false);
 
 const imagee=[{id:"1",image:require("./imagee/nig.png")},
               {id:"2",image:require("./imagee/uk.png")},
               {id:"3",image:require("./imagee/gh.png")}];
-const image1={image1:require("./imagee/nig.png"),
-             image2:require("./imagee/uk.png"),
-             image3:require("./imagee/uk.png"),
-             image:require("./imagee/uk.png")};
+const image1=["helo","hy","yes"]
+const butt=()=>{
+  for(i=0;i<=image1.length;i++){
+if(image1[i]===null|| image1[i]===""){
+//console.log(image1[i]+1)
+console.log(image1[i])
+alert(++image1)
+//alert("hryt")
+return(handle)
+  }else{
+    alert(image1[i]++)
+    //alert("rth")  
+    console.log(image1[i]++)
+    return(handle)
+   // alert(image1[i]+1)
+  
+  }
+}
+    sethandle(!handle)
+}
 const image2={image1:require("./imagee/nig.png"),
              image2:require("./imagee/uk.png"),
              image3:require("./imagee/uk.png"),
@@ -22,11 +38,15 @@ const image2={image1:require("./imagee/nig.png"),
 
               
     const handlequest=()=>{
-      
-  //    let eachfoor=Object.keys(image).forEach((key)=>{return(
-//console.log(image[key])
-    //  )})
-      for(i=1;i<total;i++){
+         
+//const picked=""
+      imagee.forEach((item)=>{return(
+console.log(item))
+      })
+      //pick=picked
+      //console.log({pick})
+    
+      for(i=0;i<imagee.length;i++){
           if(imagee[i].image===null||imagee[i].image===""){
             alert("yeah")
           return(handle)
@@ -41,10 +61,13 @@ const image2={image1:require("./imagee/nig.png"),
           return(handle)
        
           }
-          imagee++
+
+          console.log(imagee[i].id,imagee[i].image)
+          total=+imagee[i]++
+          console.log(total)
         }
          sethandle(!handle)
-        console.log(image++)
+       // console.log(image++)
       //  console.log(iscore++)
         //console.log(score)
         
@@ -60,14 +83,18 @@ const image2={image1:require("./imagee/nig.png"),
          
   
     }
-             useEffect(() => {
-               console.log(imagee)
-             })     
-  return (
+    useEffect(() => {
+      
+    console.log(image1)
+    })
+
+              return (
    <View>
      <ScrollView>
-       <Hy handle={handle} handl={()=>{handlequest()}} ques={imagee}/>
-       
+       <Hy  handle={handle} handl={()=>{handlequest()}} ques={imagee}/>
+       {image1.map((item)=>{return(
+         <Button key={item} title={item} onPress={()=>{butt()}}/>
+       )})}
 
      <View>
        <Text>Guess the country</Text>
@@ -84,6 +111,10 @@ const image2={image1:require("./imagee/nig.png"),
               <Button onPress={()=>{console.log("ty")}} title="submit"/>
      
       </View>
+      <View>
+      {pick}
+      </View>
+      
       </ScrollView>
       </View>
       
