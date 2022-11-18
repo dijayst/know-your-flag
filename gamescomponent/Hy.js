@@ -7,7 +7,7 @@ export default function Hy({ques,handl,handle}) {
         <View>
           <Text>Am not giving up</Text>
         {ques.map((item)=>{return(
-          <TouchableOpacity key={item.id} onPress={handl} style={handle?styles.typog:styles.typo}>
+          <TouchableOpacity key={item.id} onPress={handl(item.id)} style={handle?styles.typog:styles.typo}>
           <Image source={item.image} style={styles.imagearray} />
           </TouchableOpacity>)})}
             </View>
