@@ -1,24 +1,8 @@
-import React,{useState} from 'react'
-import { StyleSheet, Text, View,TouchableOpacity,Image } from 'react-native'
+/*import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-const App = () => {
+const Mapquest = () => {
     
-const imagee=[{name:"select the flag of Nigeria",options:[
-  {image:require("./imagee/uk.png"),iscorrect:false},
-  {image:require("./imagee/nig.png"),iscorrect:true},
-  {image:require("./imagee/gh.png"),iscorrect:false}]},
-  
-  {name:"select the flag of Us",options:[
-  {image:require("./imagee/us.webp"),iscorrect:true},
-  {image:require("./imagee/nig.png"),iscorrect:false},
-{image:require("./imagee/russia.jpg"),iscorrect:false}]},
-
-{name:"select the flag of russia",options:[
-  {image:require("./imagee/us.webp"),iscorrect:false},
-  {image:require("./imagee/nig.png"),iscorrect:false},
-{image:require("./imagee/russia.jpg"),iscorrect:true}]}]
-             
-
 const [handle,sethandle]=useState(false);
 
 const [score,setscore]=useState(0)
@@ -37,7 +21,7 @@ console.log("correct answer")
   if(nextquestion<imagee.length){
     setimageeIndex(nextquestion)
   }else{
-    alert( score+1)
+    alert( + score+1)
     setimageeIndex(imageeIndex)
   }
   
@@ -53,9 +37,10 @@ console.log("correct answer")
          {/* <Hy  handle={handle} handl={handlequest} ques={imagee}/>
          
           <Button title='click me' onPress={()=>{pressHandle()}} />
-         */}
+         */
+        //}
          
-         <Text style={{marginLeft:20}}>question:{imageeIndex+1}/{imagee.length}</Text>
+  /*       <Text style={{marginLeft:20}}>question:{imageeIndex+1}/{imagee.length}</Text>
     
          <Text style={{color:"black",fontSize:20}}>{imagee[imageeIndex].name}</Text>
          {imagee[imageeIndex].options.map((item,index)=>{return(
@@ -70,7 +55,8 @@ console.log("correct answer")
     )
 }
 
-export default App
+export default M
+apquest
 
 const styles = StyleSheet.create({
     container:{
@@ -122,3 +108,22 @@ const styles = StyleSheet.create({
     padding:30,
       }
 })
+
+*/
+
+
+
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+
+const Mapquest = () => {
+  return (
+    <View>
+      <Text>gfgjhggghjghj</Text>
+    </View>
+  )
+}
+
+export default Mapquest
+
+const styles = StyleSheet.create({})
